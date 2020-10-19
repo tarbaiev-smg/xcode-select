@@ -1,37 +1,49 @@
 {
-  "name": "xcode-select",
-  "version": "1.0.0",
-  "description": "GitHub Action to select the Xcode version to use.",
-  "main": "index.js",
+  "name": "typescript-action",
+  "version": "0.0.0",
+  "private": true,
+  "description": "TypeScript template action",
+  "main": "lib/main.js",
   "scripts": {
-    "lint": "eslint .",
-    "prepare": "ncc build index.js -o dist --source-map --license licenses.txt",
+    "build": "tsc",
+    "format": "prettier --write **/*.ts",
+    "format-check": "prettier --check **/*.ts",
+    "lint": "eslint src/**/*.ts",
+    "package": "ncc build --source-map --license licenses.txt",
     "test": "jest",
-    "all": "npm run lint && npm run prepare && npm run test"
+    "all": "npm run build && npm run format && npm run lint && npm run package && npm test"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/devbotsxyz/xcode-select.git"
+    "url": "git+https://github.com/actions/typescript-action.git"
   },
   "keywords": [
-    "GitHub",
-    "Actions",
-    "Xcode"
+    "actions",
+    "node",
+    "setup"
   ],
-  "author": "Stefan Arentz <stefan@devbots.xyz>",
+  "author": "",
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/devbotsxyz/xcode-select/issues"
-  },
-  "homepage": "https://github.com/devbotsxyz/xcode-select#readme",
   "dependencies": {
-    "@actions/core": "^1.2.5",
-    "execa": "^4.0.3",
+    "@actions/core": "^1.2.6",
+    "@actions/exec": "^1.0.4",
+    "@types/semver": "^7.3.4",
     "semver": "^7.3.2",
     "simple-plist": "^1.1.1"
   },
   "devDependencies": {
-    "@vercel/ncc": "^0.24.1",
-    "jest": "^26.4.2"
+    "@types/jest": "^26.0.10",
+    "@types/node": "^14.10.0",
+    "@typescript-eslint/parser": "^3.10.1",
+    "@vercel/ncc": "^0.23.0",
+    "eslint": "^7.8.1",
+    "eslint-plugin-github": "^4.1.1",
+    "eslint-plugin-jest": "^23.20.0",
+    "jest": "^24.9.0",
+    "jest-circus": "^26.4.2",
+    "js-yaml": "^3.14.0",
+    "prettier": "2.1.1",
+    "ts-jest": "^24.3.0",
+    "typescript": "^4.0.2"
   }
 }

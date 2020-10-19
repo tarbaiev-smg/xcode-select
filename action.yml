@@ -27,15 +27,14 @@ description: "Select a version of Xcode"
 
 inputs:
   version:
-    description: "Version to use (10.3, 11 or 'latest')"
+    description: "Version to use (like '11.7', '12' or simply 'latest')"
     required: false
     default: "latest"
   beta:
-    description: "Whether to select a beta release or not."
+    description: "Whether to select a beta release or not. Beta releases may not always be available."
     required: false
     default: "false"
 
 runs:
   using: "node12"
   main: "dist/index.js"
-
