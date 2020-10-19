@@ -29,6 +29,7 @@ steps:
     uses: devbotsxyz/xcode-select@v1
     with:
       beta: true
+```
 
 Although Apple does not use semantic versioning for Xcode, the GitHub virtual environments for macOS do, so you can use version numbers like `10.3.1` or `12.0.0`.
 
