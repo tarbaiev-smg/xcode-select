@@ -1347,7 +1347,7 @@ function discoverInstalls(root, beta) {
         try {
             for (var dir_1 = __asyncValues(dir), dir_1_1; dir_1_1 = yield dir_1.next(), !dir_1_1.done;) {
                 const dirent = dir_1_1.value;
-                if (dirent.name.startsWith('Xcode_') && !dirent.isSymbolicLink()) {
+                if (dirent.name.startsWith('Xcode') && !dirent.isSymbolicLink()) {
                     const install = new Install(path.join(root, dirent.name));
                     if (install.beta === beta) {
                         installs.push(install);
