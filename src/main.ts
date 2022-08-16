@@ -45,7 +45,7 @@ async function discoverInstalls(root: string, beta: boolean): Promise<Install[]>
   const dir = await fs.promises.opendir(root)
 
   for await (const dirent of dir) {
-    if (dirent.name.startsWith('Xcode_') && !dirent.isSymbolicLink()) {
+    if (dirent.name.startsWith('Xcode') && !dirent.isSymbolicLink()) {
       const install = new Install(path.join(root, dirent.name))
       if (install.beta === beta) {
         installs.push(install)
